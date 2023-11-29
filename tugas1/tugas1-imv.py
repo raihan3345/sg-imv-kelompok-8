@@ -1,9 +1,8 @@
-import json
+import os
 
 class Acara:
     def __init__(self):
-        self.nama_acara = "Acara Tralalala"
-        self.peserta = []
+        self.acara_peserta = []
 
     def daftar_peserta(self, nama_peserta):
         self.peserta.append(nama_peserta)
@@ -30,19 +29,22 @@ class Acara:
 
 
 def simpan_data(acara):
-    with open("data_pendaftaran.json", "w") as file:
-        data = {acara.nama_acara: acara.peserta}
-        json.dump(data, file)
+    with open("data_pendaftaran.txt", "w") as file:
+        for acara_peserta in acara.acara_peserta:
+            file.write(f"{acara_peserta[0]}, {acara_peserta[1]}\n")
+
 
 def baca_data():
+    acara = Acara()
     try:
-        with open("data_pendaftaran.json", "r") as file:
-            data = json.load(file)
-            acara = Acara()
-            acara.peserta = data.get(acara.nama_acara, [])
-            return acara
+        with open("data_pendaftaran.txt", "r") as file:
+            lines = file.readlines()
+            for line in lines:
+                nama_acara, nama_peserta = line.strip().split(", ")
+                acara.acara_peserta.append((nama_acara, nama_peserta))
     except FileNotFoundError:
-        return Acara()
+        pass
+    return acara
 
 
 acara = baca_data()
