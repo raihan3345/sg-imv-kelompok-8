@@ -53,9 +53,9 @@ def baca_data():
     acara = Acara()
     try:
         with open("data_pendaftaran.txt", "r") as file:
-            lines = file.readlines()
-            for line in lines:
-                nama_acara, nama_peserta = line.strip().split(", ")
+            baca_file = file.readlines()
+            for peserta in baca_file:
+                nama_acara, nama_peserta = peserta.strip().split(", ")
                 acara.acara_peserta.append((nama_acara, nama_peserta))
     except FileNotFoundError:
         pass
