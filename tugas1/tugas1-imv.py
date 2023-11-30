@@ -120,3 +120,4 @@ while True:
 
     else:
         print("Pilihan Tidak Valid. (masukkan antara 0 - 1)")
+        input('Press Enter to continue...')       
