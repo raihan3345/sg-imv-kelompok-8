@@ -15,3 +15,6 @@ def baca_data():
     except FileNotFoundError:
         pass
     return acara
+
+
+print("Selamat datang di acara pendaftaran acara")
