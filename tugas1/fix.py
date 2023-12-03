@@ -58,7 +58,7 @@ def baca_data():
 acara = baca_data()
 while True:
     print('\n' + '='*30)
-    print('    🎉 PENDAFTARAN EVENT 🎉')
+    print('\t🎉 EVENTKU 🎉')
     print('='*30 + '\n')
     print("1. 📝 Daftar Peserta")
     print("2. 🔍 Cari Peserta")
